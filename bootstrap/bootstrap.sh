@@ -4,6 +4,8 @@ VAGRANT_PATH='/vagrant/.vagrant/bootstrap';
 BOOTSTRAP_PATH='/vagrant/bootstrap'
 PACKAGE_PATH=$BOOTSTRAP_PATH/packages
 SYMFONY_PATH='/vagrant/symfony'
+WWW_PATH='/var/www'
+
 
 if [[ ! -d $VAGRANT_PATH ]]; then
   cat $BOOTSTRAP_PATH/logo
