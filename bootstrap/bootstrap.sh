@@ -36,9 +36,11 @@ fi
 function install {
   package=$1
   if [[ -f $PACKAGE_PATH/$package.sh ]]; then
-    . $PACKAGE_PATH/$package.sh
-    touch $VAGRANT_PATH/install-$package
-    echo "Finished success"
+    if [[ ! -f $VAGRANT_PATH/install-$package ]]; then
+      . $PACKAGE_PATH/$package.sh
+      touch $VAGRANT_PATH/install-$package
+      echo "Finished success"
+    fi
   else
     echo "Fail!!!!"
   fi
