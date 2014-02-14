@@ -6,6 +6,7 @@ PACKAGE_PATH=$BOOTSTRAP_PATH/packages
 SYMFONY_PATH='/vagrant/symfony'
 WWW_PATH='/var/www'
 
+export DEBIAN_FRONTEND=noninteractive
 
 if [[ ! -d $VAGRANT_PATH ]]; then
   cat $BOOTSTRAP_PATH/logo
@@ -48,6 +49,7 @@ function install {
 
 install common
 install lamp
+install mongodb
 install composer
 install symfony
 install node
