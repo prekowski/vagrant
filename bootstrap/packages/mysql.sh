@@ -1,6 +1,4 @@
 #!/bin/bash
-
-echo "Install Mysql"
 apt-get -y install mysql-server > /dev/null  2>&1
 mysqladmin -f -u root drop test
 mysqladmin -u root password vagrant

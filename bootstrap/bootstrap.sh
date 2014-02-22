@@ -3,16 +3,16 @@
 VAGRANT_PATH='/vagrant/.vagrant/bootstrap';
 BOOTSTRAP_PATH='/vagrant/bootstrap'
 PACKAGE_PATH=$BOOTSTRAP_PATH/packages
+CONFIG_PATH=$BOOTSTRAP_PATH/config
 SYMFONY_PATH='/vagrant/symfony'
 WWW_PATH='/var/www'
-
-export DEBIAN_FRONTEND=noninteractive
 
 if [[ ! -d $VAGRANT_PATH ]]; then
   cat $BOOTSTRAP_PATH/logo
   echo "Init Bootstrap"
   mkdir $VAGRANT_PATH
 
+  export DEBIAN_FRONTEND=noninteractive
   export LANGUAGE=en_US.UTF-8
   export LANG=en_US.UTF-8
   export LC_ALL=en_US.UTF-8
@@ -38,9 +38,10 @@ function install {
   package=$1
   if [[ -f $PACKAGE_PATH/$package.sh ]]; then
     if [[ ! -f $VAGRANT_PATH/install-$package ]]; then
+      echo "Start install $package"
       . $PACKAGE_PATH/$package.sh
       touch $VAGRANT_PATH/install-$package
-      echo "Finished success"
+      echo "End $package"
     fi
   else
     echo "Fail!!!!"

@@ -1,5 +1,4 @@
 #!/bin/bash
-echo "Install node.js"
 apt-get -y -f install npm > /dev/null  2>&1
 
 echo "Install npm global package"
